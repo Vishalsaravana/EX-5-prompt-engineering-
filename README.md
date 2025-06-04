@@ -1,526 +1,117 @@
-# PROMPT-ENGINEERING-2. Comparative Analysis of Different Types of Prompting Patterns and Test Scenarios
+# EXP 5: Comparative Analysis of Naïve Prompting versus Basic Prompting Using ChatGPT Across Various Test Scenarios
+# Aim:
+To test how ChatGPT responds to naïve prompts (broad or unstructured) versus basic prompts (clearer and more refined) across multiple scenarios, analyzing the quality, accuracy, and depth of the generated responses.
+# Algorithm:
+Define two prompt types: naïve (broad) and basic (clear, structured).
+
+Create multiple test scenarios targeting creative, factual, summarizing, and comparative tasks.
+
+For each scenario, input both naïve and basic prompts into ChatGPT and record the responses.
+
+Compare outputs based on quality, accuracy, and depth.
+
+Analyze findings to determine the impact of prompt clarity on ChatGPT’s performance.
+
+# OUTPUT
+### Purpose:
+To test and compare how two large language models — ChatGPT and Gemini — respond to different prompting patterns, specifically examining their behavior when given broad (unstructured) versus refined (clear) prompts, across different prompt styles.
+## Prompt Type 1: Intuition Behind Prompts
+### Prompt A (Broad):
+"Tell me something interesting."
+### ChatGPT:
+Two hearts pump blood to the gills, one to the body—and they stop the body-pumping heart when they swim.
+### Gemini:
+Bees make honey, and its low water content and acidity prevent bacteria from thriving, allowing it to last indefinitely if stored properly.
+### Prompt B (Refined):
+"Explain the intuition behind how prompts work in AI language models with two simple examples."
+### ChatGPT:
+Prompts guide the AI on what to say by giving it context.
+### Example 1:
+Prompt: “Translate to French: Good morning”
+→ AI sees “Translate” and gives “Bonjour” — it's following the instruction.
+### Example 2:
+Prompt: “Once upon a time,”
+→ AI continues with a story — it sees this as a storytelling cue.
+Prompts shape the AI’s response style and content.
+### Gemini:
+AI language models predict the next words. Prompts provide context to guide this prediction.
+### Example 1: 
+Prompt: "The sky is..." Intuition: The model predicts words commonly following "The sky is," like "blue" or "cloudy."
+### Example 2: 
+Prompt: "Translate 'hello' to French." Intuition: The model recognizes the translation task and predicts "bonjour."
+
+## Prompt Type 2: Straightforward Prompts
+### Prompt A (Broad):
+"Rain."
+### ChatGPT:
+Rain forms when moist air cools, condenses into droplets, and falls from clouds due to gravity
+### Gemini:
+Water falling from clouds.
+### Prompt B (Refined):
+"Explain what causes rainfall in 1-2 sentences."
+### ChatGPT:
+Rainfall happens when warm, moist air rises, cools, and condenses into water droplets in clouds. When these droplets grow heavy enough, they fall as rain. 
+### Gemini:
+ Warm, moist air rises, cools, and condenses into water droplets or ice crystals, forming clouds. When these droplets or crystals become too heavy, they fall to the Earth as rain. 
+
+## Prompt Type 3: Tabular Format Prompting
+### Prompt A (Broad):
+"Tell me different types of energy."
+### ChatGPT:
+Kinetic Energy,Potential Energy,Thermal (Heat) Energy,Chemical Energy,Electrical Energy,Nuclear Energy,Light (Radiant) Energy,Sound Energy
+### Gemini:
+There are many types of energy, broadly categorized as kinetic (energy of motion) and potential (stored energy).   
+### Examples include:
+Kinetic: Motion, thermal (heat), radiant (light), electrical, sound.   
+Potential: Chemical, gravitational, nuclear, elastic, mechanical.   
+Energy sources can also be classified as renewable (naturally replenished, like solar, wind, and hydro) and non-renewable (finite resources, like fossil fuels and nuclear).   
+### Prompt B (Refined):
+"List 3 types of energy in a table with their definition and example."
+### ChatGPT:
+```Type of Energy	Definition	Example
+Kinetic Energy	Energy of motion.	A moving car.
+Potential Energy	Stored energy due to position or condition.	A stretched rubber band.
+Thermal Energy	Energy from the movement of particles in matter.	Boiling water.
 ```
-NAME: VISHAL S
-REG N0: 212222040181
+### Gemini:
+```Energy Type	Definition	Example
+Kinetic	Energy of motion	A moving car
+Potential	Stored energy due to position	A ball held at a height
+Thermal	Energy due to temperature	Heat from a stove burner
 ```
-
-## 1. Introduction to Prompting Patterns
-
-Prompting patterns are structured methodologies for formulating instructions that guide AI models toward desired outputs. These patterns leverage:
-
-- Psychological principles
-- Cognitive frameworks
-- Empirical observations about how language models process and respond to different types of instructions
-
-### Key Benefits of Structured Prompting:
-
-| Benefit        | Description                                      |
-|----------------|--------------------------------------------------|
-| Consistency    | Reproducible results across similar tasks       |
-| Clarity        | Reduced ambiguity in model interpretation       |
-| Efficiency     | Faster convergence to desired outcomes          |
-| Scalability    | Easier to train teams and maintain standards    |
-
-## 2. Classification of Prompting Patterns
-
-### 2.1 Zero-Shot Prompting
-
-**Definition:** Direct instruction without examples or prior context.
-
-**Characteristics:**
-- Relies on model's pre-trained knowledge
-- Minimal context provided
-- Quick to implement
-- Variable reliability across tasks
-
-**Best Use Cases:**
-- Simple, well-defined tasks
-- Common knowledge queries
-- Quick prototyping
-- General question answering
-
-![image](https://github.com/user-attachments/assets/4d0c3bc3-1ce4-486c-a595-43b8fa019368)
-
-
----
-### 2.2 Few-Shot Prompting
-
-**Definition:** Providing 1-5 examples before presenting the actual task.
-
-**Characteristics:**
-- Demonstrates expected format and style
-- Improves consistency
-- Moderate context length
-- Better performance on specific tasks
-
-**Best Use Cases:**
-- Pattern recognition tasks
-- Structured data extraction
-- Creative writing with specific style
-- Classification problems
-
-![image](https://github.com/user-attachments/assets/c30f04da-df93-4e06-930c-7d06f5638cd1)
-
-
----
-### 2.3 Chain-of-Thought (CoT) Prompting
-
-**Definition:** Instructing the model to show its reasoning process step-by-step.
-
-**Characteristics:**
-- Explicit reasoning visualization
-- Better for complex problems
-- Longer outputs
-- More interpretable results
-
-**Best Use Cases:**
-- Mathematical problems
-- Logical reasoning
-- Multi-step analysis
-- Debugging and troubleshooting
-
-![image](https://github.com/user-attachments/assets/a8c069fa-289d-4ec1-8f49-ed019e00554f)
-
-![image](https://github.com/user-attachments/assets/69f2a096-aadd-41d9-8319-0c5bca63b0b1)
-
-
----
-
-### 2.4 Tree-of-Thought (ToT) Prompting
-
-**Definition:** Exploring multiple reasoning paths simultaneously before selecting the best approach.
-
-**Characteristics:**
-- Considers alternative solutions
-- Self-evaluation mechanism
-- Higher computational cost
-- More robust solutions
-
-**Best Use Cases:**
-- Complex strategic problems
-- Creative problem solving
-- Research and analysis
-- Decision-making scenarios
-
-![image](https://github.com/user-attachments/assets/d14bb3c9-6387-4446-94af-df669cac11af)
-
-![image](https://github.com/user-attachments/assets/4c2be316-b1be-4dc4-a130-c18ee52fa5a6)
-
-
----
-
-### 2.5 Role-Based Prompting
-
-**Definition:** Assigning a specific persona or expertise role to the AI model.
-
-**Characteristics:**
-- Contextual expertise
-- Consistent voice and perspective
-- Domain-specific knowledge activation
-- Enhanced credibility
-
-**Best Use Cases:**
-- Professional consultations
-- Educational content
-- Creative writing
-- Technical documentation
-
-![image](https://github.com/user-attachments/assets/319f2345-9bbe-4754-ac77-984866fc0092)
-
-
----
-
-### 2.6 Template-Based Prompting
-
-**Definition:** Using structured templates with predefined placeholders for consistent formatting.
-
-**Characteristics:**
-- High consistency
-- Scalable across teams
-- Predictable output format
-- Easy to maintain
-
-**Best Use Cases:**
-- Report generation
-- Content creation workflows
-- Data analysis
-- Quality assurance
-
-![image](https://github.com/user-attachments/assets/d4172cd5-04ec-40cb-9a4a-00100809628f)
-
-
----
-
-### 2.7 Meta-Prompting
-
-**Definition:** Prompts that instruct the model to generate or improve other prompts.
-
-**Characteristics:**
-- Self-improving systems
-- Adaptive to specific needs
-- Requires careful validation
-- Higher abstraction level
-
-**Best Use Cases:**
-- Prompt optimization
-- Automated content generation
-- System design
-- Research applications
-
----
-
-### 2.8 Adversarial Prompting
-
-**Definition:** Using contrarian or challenging instructions to test model robustness and reveal limitations.
-
-**Characteristics:**
-- Tests model boundaries
-- Reveals biases and limitations
-- Improves robustness
-- Critical evaluation tool
-
-**Best Use Cases:**
-- Model testing
-- Bias detection
-- Security assessment
-- Quality assurance
-
----
-
-## 3. Comparative Analysis Framework
-
-### 3.1 Evaluation Criteria
-
-**Effectiveness Metrics:**
-- Accuracy of output
-- Consistency across trials
-- Response relevance
-- Task completion rate
-
-**Efficiency Metrics:**
-- Time to first response
-- Token usage
-- Implementation complexity
-- Maintenance overhead
-
-**Quality Metrics:**
-- Clarity of communication
-- Depth of analysis
-- Creativity and innovation
-- Error rate
-
-![image](https://github.com/user-attachments/assets/2f7ae0f9-96c1-414d-a084-102d7affe8ac)
-
-![image](https://github.com/user-attachments/assets/957cb93c-0a5b-438e-b90d-9630e216c427)
-
-
----
-
-## 4.Detailed Test Scenarios
-
-This document outlines five detailed test scenarios for evaluating different prompting strategies in natural language tasks, including mathematical reasoning, creative writing, business analysis, technical documentation, and data interpretation.
-
----
-
-### Test Scenario 1: Mathematical Problem Solving
-
-**Problem:**  
-Calculate the compound interest on $10,000 invested at 5% annually for 3 years.
-
-- **Zero-Shot Approach:**  
-  > Calculate the compound interest on $10,000 invested at 5% annually for 3 years.
-
-- **Chain-of-Thought Approach:**  
-  > Calculate the compound interest on $10,000 invested at 5% annually for 3 years.  
-  > Show your work step by step.
-
-- **Expected Difference:**  
-  Chain-of-Thought (CoT) should show formula application, intermediate calculations, and clear reasoning.
-
----
-
-### Test Scenario 2: Creative Writing
-
-**Task:**  
-Write a short story about a time traveler who accidentally changes history.
-
-- **Role-Based Approach:**  
-  > You are a professional science fiction writer known for intricate time travel narratives.  
-  > Write a short story about a time traveler who accidentally changes history.
-
-- **Few-Shot Approach:**  
-  > Here are examples of time travel story openings:  
-  >
-  > **Example 1:** "Marcus stepped out of the temporal chamber into ancient Rome, not realizing his mere presence would alter the course of empire..."  
-  > **Example 2:** "The butterfly Sarah saved in 1962 would cost her everything she loved in 2023..."  
-  >  
-  > Now write a short story about a time traveler who accidentally changes history.
-
-- **Expected Difference:**  
-  Role-based should have professional narrative structure; few-shot should follow the example patterns.
-
----
-
-### Test Scenario 3: Business Analysis
-
-**Task:**  
-Analyze the pros and cons of remote work for a software development company.
-
-- **Template-Based Approach:**  
-  > Analyze [remote work] for [software development company] using this structure:  
-  > 1. Current Context  
-  > 2. Advantages (minimum 5 points)  
-  > 3. Disadvantages (minimum 5 points)  
-  > 4. Mitigation Strategies  
-  > 5. Recommendation
-
-- **Tree-of-Thought Approach:**  
-  > Analyze the pros and cons of remote work for a software development company.  
-  > Consider multiple perspectives:  
-  > - Employee perspective  
-  > - Management perspective  
-  > - Client perspective  
-  > - Financial perspective  
-  > Evaluate each, then provide a balanced conclusion.
-
-- **Expected Difference:**  
-  Template ensures consistent format; Tree-of-Thought (ToT) provides multi-angle analysis.
-
----
-
-### Test Scenario 4: Technical Documentation
-
-**Task:**  
-Explain how to set up a basic web server.
-
-- **Zero-Shot:**  
-  > Explain how to set up a basic web server.
-
-- **Role-Based:**  
-  > You are a senior DevOps engineer writing documentation for junior developers.  
-  > Explain how to set up a basic web server with clear, step-by-step instructions.
-
-- **Expected Difference:**  
-  Role-based should include assumptions about audience knowledge, prerequisite checks, and professional best practices.
-
----
-
-### Test Scenario 5: Data Interpretation
-
-**Task:**  
-Interpret sales data showing 20% increase in Q1, 15% decrease in Q2, 30% increase in Q3, 5% decrease in Q4.
-
-- **Chain-of-Thought:**  
-  > Here's sales data for the year:  
-  > Q1: +20%  
-  > Q2: -15%  
-  > Q3: +30%  
-  > Q4: -5%  
-  >  
-  > Analyze this data step by step, identifying trends, possible causes, and implications.
-
-- **Few-Shot:**  
-  > Example analysis:  
-  > "Q1: +10%, Q2: +5% shows steady growth likely due to seasonal factors..."  
-  >  
-  > Now analyze: Q1: +20%, Q2: -15%, Q3: +30%, Q4: -5%
-
-- **Expected Difference:**  
-  Chain-of-Thought should show analytical reasoning process; few-shot should match example format and style.
-
----
-## 5. Performance Benchmarks
-
-This section summarizes performance benchmarks based on empirical testing across various task types and evaluation criteria.
-
----
-
-### 5.1 Accuracy Comparison
-
-Accuracy was measured across 100 tasks in each of the following categories: Simple Tasks, Complex Tasks, Creative Tasks, and Technical Tasks.
-
-| Pattern         | Simple Tasks | Complex Tasks | Creative Tasks | Technical Tasks |
-|----------------|--------------|----------------|----------------|------------------|
-| **Zero-Shot**      | 85%          | 45%            | 60%            | 70%              |
-| **Few-Shot**       | 90%          | 65%            | 80%            | 85%              |
-| **Chain-of-Thought** | 80%       | 85%            | 70%            | 90%              |
-| **Tree-of-Thought**  | 85%       | 95%            | 85%            | 95%              |
-| **Role-Based**     | 75%          | 70%            | 95%            | 85%              |
-| **Template-Based** | 95%          | 60%            | 50%            | 80%              |
-
----
-
-### 5.2 Consistency Scores
-
-Consistency is evaluated as the variance in output quality across 10 identical requests. Higher scores indicate more consistent output behavior.
-
-| Pattern           | Consistency Score (0-100) |
-|-------------------|---------------------------|
-| **Template-Based**   | 95                        |
-| **Few-Shot**         | 85                        |
-| **Chain-of-Thought** | 80                        |
-| **Zero-Shot**        | 75                        |
-| **Role-Based**       | 70                        |
-| **Tree-of-Thought**  | 65                        |
-
----
-
-### 5.3 Resource Utilization
-
-![image](https://github.com/user-attachments/assets/a45ef2b8-9b69-492b-9198-ccf0dfdd23dc)
-
-
-## 6. Best Practices and Implementation Guidelines
-
----
-
-### 6.1 Selection Criteria
-
-**Choose Zero-Shot when:**
-- Task is simple and well-defined  
-- Quick results needed  
-- Limited context available  
-- Exploring model capabilities  
-
-**Choose Few-Shot when:**
-- Specific output format required  
-- Pattern learning beneficial  
-- Examples readily available  
-- Consistency important  
-
-**Choose Chain-of-Thought when:**
-- Complex reasoning required  
-- Transparency needed  
-- Multi-step problems  
-- Educational purposes  
-
-**Choose Tree-of-Thought when:**
-- Multiple valid approaches exist  
-- High-stakes decisions  
-- Creative problem solving  
-- Research applications  
-
-**Choose Role-Based when:**
-- Domain expertise required  
-- Specific voice/tone needed  
-- Professional context  
-- User expectations clear  
-
-**Choose Template-Based when:**
-- Standardization required  
-- Team collaboration needed  
-- Quality control important  
-- Scalability prioritized  
-
----
-
-### 6.2 Optimization Strategies
-
-**For Zero-Shot:**
-- Use clear, specific language  
-- Avoid ambiguity  
-- Provide context when necessary  
-- Test with variations  
-
-**For Few-Shot:**
-- Choose diverse, representative examples  
-- Maintain consistent format  
-- Include edge cases  
-- Verify example quality  
-
-**For Chain-of-Thought:**
-- Use explicit reasoning triggers  
-- Encourage step-by-step thinking  
-- Allow for course corrections  
-- Validate reasoning chains  
-
-**For Tree-of-Thought:**
-- Define evaluation criteria clearly  
-- Encourage multiple perspectives  
-- Allow time for exploration  
-- Synthesize findings effectively  
-
----
-
-### 6.3 Common Pitfalls and Solutions
-
-**Over-prompting**  
-- *Problem:* Too much context overwhelms the model  
-- *Solution:* Find optimal prompt length through testing  
-
-**Under-specification**  
-- *Problem:* Vague instructions lead to inconsistent results  
-- *Solution:* Provide clear constraints and expectations  
-
-**Example Bias**  
-- *Problem:* Poor examples mislead the model  
-- *Solution:* Carefully curate and test examples  
-
-**Role Confusion**  
-- *Problem:* Conflicting role definitions  
-- *Solution:* Maintain consistent persona throughout  
-
----
-
-## 7. Advanced Combinations and Hybrid Approaches
-
-### 7.1 Chain-of-Thought + Role-Based
-
-> You are a financial advisor. A client asks about investment options.  
-> Think through your advice step by step, considering their risk tolerance, time horizon, and financial goals.
-
-### 7.2 Few-Shot + Template
-
-> Example reports follow this format:  
-> [Executive Summary]  
-> [Analysis]  
-> [Recommendations]  
->
-> **Example 1:** For quarterly review...  
-> **Example 2:** For market analysis...  
->
-> Now create a report on [topic] using this format.
-
-### 7.3 Meta + Tree-of-Thought
-
-> Design a prompting strategy that would help evaluate multiple solutions to complex business problems.  
-> Consider different approaches, evaluate their merits, and provide the optimal prompting framework.
-
----
-
-## 8. Future Trends and Emerging Patterns
-
-### 8.1 Adaptive Prompting
-- Self-modifying prompts based on response quality and user feedback.
-
-### 8.2 Contextual Memory Integration
-- Prompts that leverage long-term conversation history and user preferences.
-
-### 8.3 Multi-Modal Prompting
-- Integration of text, image, and audio inputs in prompt design.
-
-### 8.4 Collaborative Prompting
-- Prompts designed for multi-agent AI systems working together.
-
----
-
-## 9. Conclusion and Recommendations
-
-### Key Findings
-- **No Universal Solution:** Different patterns excel in different scenarios  
-- **Context Matters:** Task complexity and domain significantly influence pattern effectiveness  
-- **Hybrid Approaches:** Combining patterns often yields superior results  
-- **Trade-offs Exist:** Performance gains often come with increased complexity or resource usage  
-
-### Strategic Recommendations
-- **Develop a Pattern Portfolio:** Master multiple patterns for versatility  
-- **Establish Testing Protocols:** Systematically evaluate pattern performance for your use cases  
-- **Create Pattern Libraries:** Build reusable templates and examples  
-- **Train Teams:** Ensure consistent application across your organization  
-- **Monitor and Iterate:** Continuously refine patterns based on results  
-
-## Conclusion
-
-Effective prompting is both art and science. While these patterns provide structured approaches to common challenges, the most successful implementations combine systematic methodology with creative adaptation to specific contexts. As AI capabilities continue to evolve, so too will our understanding of optimal prompting strategies.
-
-The investment in mastering these patterns pays dividends in improved AI collaboration, more predictable outcomes, and enhanced problem-solving capabilities across diverse domains.
+### Prompt Type 4: Comparative Analysis Prompt
+### Prompt A (Broad):
+"Compare things."
+### ChatGPT:
+Here are some comparisons:
+### 1.	Apples vs. Oranges
+o	Apples: Crisp, sweet or tart, commonly eaten raw.
+o	Oranges: Juicy, tangy, mostly consumed as juice or fresh.
+### 2.	Cars vs. Bicycles
+o	Cars: Faster, require fuel, can travel long distances.
+o	Bicycles: Slower, eco-friendly, require physical effort.
+
+### Gemini:
+ Apples are sweet and crunchy, while oranges are citrusy and juicy. Both are fruits but offer different tastes and textures.
+### Prompt B (Refined):
+" Compare the effectiveness of rule-based systems and machine learning models in solving complex problems”
+
+### ChatGPT:
+Rule-based systems use predefined rules, making them effective for simple tasks but struggle with complexity and adaptability. They require manual updates for maintenance.
+Machine learning models, on the other hand, learn from data, handle complex problems better, and improve over time with more data. They are more adaptable and typically perform better in uncertain scenarios.
+
+### Gemini:
+Rule-based systems excel in well-defined problems with clear, logical rules, offering transparency and consistency. However, they struggle with complex, dynamic situations requiring adaptation and learning. Machine learning models, on the other hand, learn from data to solve intricate problems, improve with more data, and handle ambiguity, but can be less transparent and require significant data for training.
+
+
+# Conclusion:
+### Based on the analysis of quality, accuracy, and depth, both AI models perform well, with slight differences:
+### 1.	Quality:
+Chat GPT provides more detailed explanations, while Gemini is generally more concise and focused.
+### 2.	Accuracy:
+Complex scenarios tend to be handled more accurately by ChatGPT, whereas simpler, straightforward tasks are more precisely handled by Gemini
+### 3.	Depth:
+Gemini offers deeper responses in unstructured or broad prompts, while ChatGPT is more efficient in structured, refined prompts.
+Overall, the best model depends on user preference for detail, clarity, and the complexity of the prompt. Gemini is the best choice for users seeking more depth and detailed explanations
+# Result:
+The prompt for the above said problem executed successfully
